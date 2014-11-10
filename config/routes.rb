@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
 
+  get "admin", to: "admin#show", as: :admin
+
   constraints Monban::Constraints::SignedIn.new do
     root "sessions#new", as: :home
   end
