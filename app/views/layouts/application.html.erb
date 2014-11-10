@@ -15,6 +15,10 @@
     <%= link_to "Sign up", new_user_path %>
   <% end %>
 
+  <% if current_user.admin? %>
+    <p>you're an admin</p>
+  <% end %>
+
  <%= yield %>
 
 </body>
