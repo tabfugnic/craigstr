@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     @post.save
 
-    redirect_to root_path
+    redirect_to @post
   end
 
   def show
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    redirect_to @post
+    redirect_to root_path
   end
 
   private

@@ -1,0 +1,11 @@
+<h2><%= @post.title %></h2>
+
+<p><%= @post.description %></p>
+
+<%= image_tag @post.image, width: 500 %>
+
+<div class="edit">
+  <%= link_to "Edit Post", edit_post_path(@post) %>
+</div>
+
+<%= button_to "Delete Post", post_path(@post), method: :delete %>
