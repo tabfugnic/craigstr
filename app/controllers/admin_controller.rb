@@ -7,6 +7,6 @@ class AdminController < ApplicationController
   private
 
   def check_authorization
-    render :status => 401
+    render status: 401
   end
 end
