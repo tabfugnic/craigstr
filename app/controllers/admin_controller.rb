@@ -7,6 +7,7 @@ class AdminController < ApplicationController
   private
 
   def check_authorization
-    raise User::NotAuthorized unless current_user.admin?
+    render :status => 401
+  #  raise User::NotAuthorized unless current_user.admin?
   end
 end
