@@ -16,7 +16,7 @@
   <% end %>
 
   <% if current_user.admin? %>
-    <p>you're an admin</p>
+    <%= link_to "Admin Page", admin_path %>
   <% end %>
 
  <%= yield %>
