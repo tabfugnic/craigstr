@@ -12,6 +12,15 @@ class RegionsController < ApplicationController
     redirect_to @region
   end
 
+  def show
+    @region = Region.find(params[:id])
+    @categories = Category.all
+  end
+
+  def index
+    @regions = Region.all
+  end
+
   private
 
   def region_params
