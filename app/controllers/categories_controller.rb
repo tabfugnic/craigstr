@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :check_authorization, except: [:index, :show]
+
   def index
   end
 
@@ -14,12 +16,31 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = find_category
+  end
+
+  def edit
+    @category = find_category
+  end
+
+  def update
+    @category = find_category
+    @category.update(category_params)
+
+    redirect_to @category
   end
 
   private
 
   def category_params
     params.require(:category).permit(:name, :description)
+  end
+
+  def find_category
+    Category.find(params[:id])
+  end
+
+  def check_authorization
+    raise User::NotAuthorized unless current_user.admin?
   end
 end

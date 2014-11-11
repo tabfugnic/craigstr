@@ -1,0 +1,7 @@
+<h1><%= @category.name %></h1>
+
+<h3><%= @category.description %></h1>
+
+<% if current_user.admin? %>
+  <%= link_to "edit category", edit_category_path(@category) %>
+<% end %>
