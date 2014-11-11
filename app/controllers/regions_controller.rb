@@ -1,5 +1,5 @@
 class RegionsController < ApplicationController
-  before_action :check_admin
+  before_action :check_admin, only: [:new, :create]
 
   def new
     @region = Region.new
