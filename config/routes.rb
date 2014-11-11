@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   get "admin", to: "admin#show", as: :admin
   resources :posts, except: :index
+  resources :regions, only: [:new, :create]
 
   get "homes" => "homes#show"
 
