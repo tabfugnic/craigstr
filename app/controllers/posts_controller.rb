@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
   end
 
   def edit
@@ -30,11 +31,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    region = find_region
-    post = Post.find(params[:id])
-    post.destroy
-
-    redirect_to region
+    @post = Post.find(params[:id])
+    @user = @post.user
+    if @user == current_user
+      @post.destroy
+      redirect_to root_path
+    end
   end
 
   private
