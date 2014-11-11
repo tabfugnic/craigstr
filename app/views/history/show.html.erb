@@ -3,5 +3,5 @@
 <%= link_to "Make a new post!", new_post_path %>
 
 <div class="posts">
-  <%= render(current_user.posts) || "You have no posts right now." %>
+  <%= render @posts || "You have no posts right now." %>
 </div>
