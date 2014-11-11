@@ -2,12 +2,12 @@ class CategoriesController < ApplicationController
   before_action :check_admin, except: :show
 
   def new
-    @region = Region.find(params[:region_id])
+    @region = find_region
     @category = Category.new
   end
 
   def create
-    @region = Region.find(params[:region_id])
+    @region = find_region
     @category = Category.new(category_params)
     @category.save
 
@@ -15,17 +15,17 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @region = Region.find(params[:region_id])
+    @region = find_region
     @category = find_category
   end
 
   def edit
-    @region = Region.find(params[:region_id])
+    @region = find_region
     @category = find_category
   end
 
   def update
-    @region = Region.find(params[:region_id])
+    @region = find_region
     @category = find_category
     @category.update(category_params)
 
@@ -33,7 +33,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @region = Region.find(params[:region_id])
+    @region = find_region
     @category = find_category
     @category.delete
 
@@ -44,6 +44,10 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name, :description)
+  end
+
+  def find_region
+    Region.find(params[:region_id])
   end
 
   def find_category
