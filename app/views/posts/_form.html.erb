@@ -1,0 +1,22 @@
+<%= form_for post do |form| %>
+
+  <div class="title-input">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="description-input">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="image-input">
+    <%= form.label :image %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+
+<% end %>
