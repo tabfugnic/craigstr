@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   get "admin", to: "admin#show", as: :admin
+  get "history", to: "history#show", as: :history
   resources :posts, except: :index
   resources :regions, except: [:update, :destroy] do
     resources :categories, except: [:index]
