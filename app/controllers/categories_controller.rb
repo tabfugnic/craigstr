@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
   before_action :check_authorization, except: [:index, :show]
 
   def index
+    @categories = Category.all
   end
 
   def new
@@ -28,6 +29,13 @@ class CategoriesController < ApplicationController
     @category.update(category_params)
 
     redirect_to @category
+  end
+
+  def destroy
+    @category = find_category
+    @category.delete
+
+    redirect_to categories_path
   end
 
   private
