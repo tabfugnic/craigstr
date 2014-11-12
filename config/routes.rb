@@ -13,7 +13,5 @@ Rails.application.routes.draw do
     resources :posts, except: [:index]
   end
 
-  get "homes" => "homes#show"
-
-  root "homes#show"
+  root "regions#index"
 end
