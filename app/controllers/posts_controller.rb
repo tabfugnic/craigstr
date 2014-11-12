@@ -2,12 +2,14 @@ class PostsController < ApplicationController
   before_action :require_login, except: :show
 
   def new
+    @region = find_region
     @post = Post.new
   end
 
   def create
     @region = find_region
     @post = current_user.posts.new(post_params)
+    @post.region = @region
     @post.save
 
     redirect_to [@region, @post]
