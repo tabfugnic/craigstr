@@ -24,15 +24,13 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = Post.find(params[:id])
     post.update(post_params)
 
     redirect_to [post.region, post]
   end
 
   def destroy
-    post
-    @post.delete
+    post.delete
 
     redirect_to root_path
   end
