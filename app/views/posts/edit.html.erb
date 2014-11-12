@@ -1,3 +1,7 @@
 <h3>Edit Post</h3>
 
-<%= render "form", region: @post.region, post: @post %>
+<% if @user == current_user %>
+  <%= render "form", post: @post %>
+<% else %>
+  <p>Get out of here</p>
+<% end %>

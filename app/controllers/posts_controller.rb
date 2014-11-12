@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_login, except: :show
+  before_action :require_owner, only: [:edit]
 
   def new
     @region = find_region
@@ -47,5 +48,12 @@ class PostsController < ApplicationController
 
   def find_region
     Region.find(params[:region_id])
+
+  def require_owner
+    @post = Post.find(params[:id])
+    @user = @post.user
+    if @user != current_user
+      raise User::NotAuthorized
+    end
   end
 end
