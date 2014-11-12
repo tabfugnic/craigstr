@@ -1,7 +1,3 @@
 <h3>Edit Post</h3>
 
-<% if @user == current_user %>
-  <%= render "form", post: @post %>
-<% else %>
-  <p>Get out of here</p>
-<% end %>
+<%= render "form", post: @post %>
