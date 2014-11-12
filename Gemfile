@@ -9,6 +9,7 @@ gem 'monban'
 gem 'monban-generators'
 gem 'pg'
 gem 'rails_12factor'
+gem 'rubocop'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'turbolinks'
