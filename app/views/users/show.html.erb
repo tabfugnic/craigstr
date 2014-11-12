@@ -1,0 +1,7 @@
+<h2>Posts by <%= current_user.email %></h2>
+
+<%= link_to "Make a new post!", new_post_path %>
+
+<div class="posts">
+  <%= render @posts || "You have no posts right now." %>
+</div>
