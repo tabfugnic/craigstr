@@ -1,5 +1,5 @@
 class RegionsController < ApplicationController
-  before_action :check_admin
+  before_action :check_admin, only: [:new, :create]
 
   def new
     @region = Region.new
@@ -10,6 +10,15 @@ class RegionsController < ApplicationController
     @region.save
 
     redirect_to @region
+  end
+
+  def show
+    @region = Region.find(params[:id])
+    @categories = Category.all
+  end
+
+  def index
+    @regions = Region.all
   end
 
   private

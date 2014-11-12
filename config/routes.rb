@@ -5,11 +5,12 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
-  resources :categories
 
   get "admin", to: "admin#show", as: :admin
   resources :posts, except: :index
-  resources :regions, only: [:new, :create]
+  resources :regions, except: [:update, :destroy] do
+    resources :categories, except: [:index]
+  end
 
   get "homes" => "homes#show"
 

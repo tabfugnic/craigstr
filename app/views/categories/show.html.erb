@@ -2,7 +2,8 @@
 
 <h3><%= @category.description %></h1>
 
+
 <% if current_user.admin? %>
-  <%= link_to "edit category", edit_category_path(@category) %>
-  <%= link_to "delete category", category_path(@category), method: :delete %>
+  <%= link_to "edit category", edit_region_category_path(@region, @category) %>
+  <%= link_to "delete category", region_category_path(@region, @category), method: :delete %>
 <% end %>
