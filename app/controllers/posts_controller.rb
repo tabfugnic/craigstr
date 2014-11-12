@@ -16,12 +16,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-    @user = @post.user
+    post
   end
 
   def edit
-    @post = Post.find(params[:id])
+    post
   end
 
   def update
@@ -32,8 +31,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @user = @post.user
+    post
     @post.delete
 
     redirect_to root_path
@@ -49,10 +47,14 @@ class PostsController < ApplicationController
     Region.find(params[:region_id])
 
   def require_owner
-    post = Post.find(params[:id])
+    post
 
     unless post.owned_by?(current_user) || current_user.admin?
       raise User::NotAuthorized
     end
+  end
+
+  def post
+    @post ||= Post.find(params[:id])
   end
 end
