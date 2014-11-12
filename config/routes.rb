@@ -7,12 +7,11 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
 
   get "admin", to: "admin#show", as: :admin
-  resources :posts, except: :index
+
   resources :regions, except: [:update, :destroy] do
     resources :categories, except: [:index]
+    resources :posts, except: [:index]
   end
 
-  get "homes" => "homes#show"
-
-  root "homes#show"
+  root "regions#index"
 end
