@@ -43,6 +43,7 @@ class PostsController < ApplicationController
 
   def find_region
     Region.find(params[:region_id])
+  end
 
   def require_owner
     post
