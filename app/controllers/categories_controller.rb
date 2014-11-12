@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :check_admin, except: :show
+  before_action :check_admin, except: [:show]
 
   def new
     @region = find_region
