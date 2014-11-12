@@ -7,38 +7,34 @@ class PostsController < ApplicationController
   end
 
   def create
-    @region = find_region
-    @post = current_user.posts.new(post_params)
-    @post.region = @region
-    @post.save
+    post = current_user.posts.new(post_params)
+    post.region = find_region
+    post.save
 
-    redirect_to [@region, @post]
+    redirect_to [post.region, post]
   end
 
   def show
-    @region = find_region
     @post = Post.find(params[:id])
   end
 
   def edit
-    @region = find_region
     @post = Post.find(params[:id])
   end
 
   def update
-    @region = find_region
-    @post = Post.find(params[:id])
-    @post.update(post_params)
+    post = Post.find(params[:id])
+    post.update(post_params)
 
-    redirect_to [@region, @post]
+    redirect_to [post.region, post]
   end
 
   def destroy
-    @region = find_region
-    @post = Post.find(params[:id])
-    @post.destroy
+    region = find_region
+    post = Post.find(params[:id])
+    post.destroy
 
-    redirect_to @region
+    redirect_to region
   end
 
   private

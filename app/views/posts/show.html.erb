@@ -5,7 +5,7 @@
 <%= image_tag @post.image, width: 500 %>
 
 <div class="edit">
-  <%= link_to "Edit Post", edit_region_post_path(@region, @post) %>
+  <%= link_to "Edit Post", edit_region_post_path(@post.region, @post) %>
 </div>
 
-<%= button_to "Delete Post", region_post_path(@region, @post), method: :delete %>
+<%= button_to "Delete Post", region_post_path(@post.region, @post), method: :delete %>
