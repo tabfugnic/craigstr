@@ -4,10 +4,9 @@ require "monban/constraints/signed_out"
 Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
 
   get "admin", to: "admin#show", as: :admin
-  resource :history, only: [:show]
   resources :posts, except: :index
   resources :regions, except: [:update, :destroy] do
     resources :categories, except: [:index]
