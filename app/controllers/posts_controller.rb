@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_login, except: :show
-  before_action :require_owner, only: [:edit, :update, :delete]
+  before_action :require_owner, only: [:edit, :update, :destroy]
 
   def new
     @region = find_region
@@ -34,10 +34,9 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @user = @post.user
-    if @user == current_user
-      @post.destroy
-      redirect_to root_path
-    end
+    @post.delete
+
+    redirect_to root_path
   end
 
   private
@@ -50,12 +49,10 @@ class PostsController < ApplicationController
     Region.find(params[:region_id])
 
   def require_owner
-    @post = Post.find(params[:id])
-    @user = @post.user
-    unless current_user.admin?
-      if @user != current_user
-        raise User::NotAuthorized
-      end
+    post = Post.find(params[:id])
+
+    unless post.owned_by?(current_user) || current_user.admin?
+      raise User::NotAuthorized
     end
   end
 end
