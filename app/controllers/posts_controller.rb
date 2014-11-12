@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   def new
     @region = find_region
     @post = Post.new
+    @categories = Category.all
   end
 
   def create
