@@ -12,8 +12,8 @@
   <%= button_to "Delete Post", region_post_path(@post.region, @post), method: :delete %>
 <% end %>
 
-<% if @post.spam %>
-  <h2>this is flagged as spam</h2>
+<% if @post.spam? %>
+  <h4>this is flagged as spam</h4>
 <% else %>
   <div>
     <%= button_to "Flag as Spam", post_spam_path(@post) %>
