@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_login, except: :show
+  before_action :require_login, except: [:show]
   before_action :require_owner, only: [:edit, :update, :destroy]
 
   def new
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :image)
+    params.require(:post).permit(:title, :description, :image, category_ids: [])
   end
 
   def find_region

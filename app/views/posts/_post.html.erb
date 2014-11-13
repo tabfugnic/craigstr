@@ -1,11 +1,17 @@
 <h2><%= post.title %></h2>
 
+<div class="categories">
+  Categories: <% post.categories.each do |category| %>
+    <%= link_to category.name, region_category_path(post.region, category) %>
+  <% end %>
+</div>
+
 <p><%= post.description %></p>
 
 <%= image_tag post.image, width: 500 %>
 
 <div class="edit">
-  <%= link_to "Edit Post", edit_post_path(post) %>
+  <%= link_to "Edit Post", edit_region_post_path(post.region, post) %>
 </div>
 
-<%= button_to "Delete Post", post_path(post), method: :delete %>
+<%= button_to "Delete Post", region_post_path(post.region, post), method: :delete %>

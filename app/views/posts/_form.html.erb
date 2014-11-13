@@ -15,6 +15,11 @@
     <%= form.text_field :image %>
   </div>
 
+  <div class="category-input">
+    <%= form.label :categories %>
+    <%= collection_check_boxes(:post, :category_ids, categories, :id, :name) %>
+  </div>
+
   <div class="submit">
     <%= form.submit %>
   </div>
