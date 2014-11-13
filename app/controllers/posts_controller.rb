@@ -1,11 +1,10 @@
 class PostsController < ApplicationController
-  before_action :require_login, except: :show
+  before_action :require_login, except: [:show]
   before_action :require_owner, only: [:edit, :update, :destroy]
 
   def new
     @region = find_region
     @post = Post.new
-    @categories = Category.all
   end
 
   def create
@@ -21,7 +20,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @categories = Category.all
     post
   end
 
