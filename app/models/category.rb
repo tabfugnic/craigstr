@@ -5,6 +5,6 @@ class Category < ActiveRecord::Base
   has_many :posts, through: :category_relationships
 
   def ordered_posts(region)
-    self.posts.where(region_id: region.id).order(created_at: :desc)
+    posts.where(region_id: region.id).order(created_at: :desc)
   end
 end
