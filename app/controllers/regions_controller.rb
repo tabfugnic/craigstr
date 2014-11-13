@@ -23,6 +23,13 @@ class RegionsController < ApplicationController
     redirect_to region
   end
 
+  def destroy
+    region = Region.find(params[:id])
+    region.destroy
+
+    redirect_to regions_path
+  end
+
   def show
     @region = Region.find(params[:id])
     @categories = Category.all

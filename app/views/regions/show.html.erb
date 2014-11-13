@@ -1,5 +1,6 @@
 <% if current_user.admin? %>
   <%= link_to "Edit Region", edit_region_path(@region) %>
+  <%= button_to "Delete Region", region_path(@region), method: :delete %>
 <% end %>
 
 <h2><%= @region.name %></h2>
