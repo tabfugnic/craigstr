@@ -17,10 +17,7 @@
 
   <div class="category-input">
     <%= form.label :categories %>
-    <% categories.each do |category| %>
-      <%= check_box_tag(category) %>
-      <%= label_tag(category, category.name) %>
-    <% end %>
+    <%= collection_check_boxes(:post, :category_ids, categories, :id, :name) %>
   </div>
 
   <div class="submit">
