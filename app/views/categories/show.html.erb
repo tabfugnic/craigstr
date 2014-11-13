@@ -11,7 +11,7 @@
 <ul>
   <% @category.ordered_posts.each do |post| %>
     <li>
-      <%= link_to post.title, region_post_path(@region, post) %>,
+      <%= link_to post.name, region_post_path(@region, post) %>,
       posted <%= time_ago_in_words(post.created_at) %> ago
     </li>
   <% end %>
