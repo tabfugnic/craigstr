@@ -7,3 +7,7 @@
   <%= link_to "edit category", edit_region_category_path(@region, @category) %>
   <%= link_to "delete category", region_category_path(@region, @category), method: :delete %>
 <% end %>
+
+<ul>
+  <%= render partial: "post_link", collection: @category.ordered_posts(@region), as: :post, locals: {region: @region} %>
+</ul>

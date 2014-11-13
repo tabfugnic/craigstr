@@ -1,5 +1,7 @@
 <h2><%= post.title %></h2>
 
+<p>Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+
 <div class="categories">
   Categories: <% post.categories.each do |category| %>
     <%= link_to category.name, region_category_path(post.region, category) %>
