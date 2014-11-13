@@ -21,6 +21,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
     post
   end
 
