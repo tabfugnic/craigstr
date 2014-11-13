@@ -7,3 +7,12 @@
   <%= link_to "edit category", edit_region_category_path(@region, @category) %>
   <%= link_to "delete category", region_category_path(@region, @category), method: :delete %>
 <% end %>
+
+<ul>
+  <% @category.posts.each do |post| %>
+    <li>
+      <%= link_to post.title, region_post_path(@region, post) %>,
+      posted <%= time_ago_in_words(post.created_at) %> ago
+    </li>
+  <% end %>
+</ul>
