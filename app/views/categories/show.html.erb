@@ -10,9 +10,6 @@
 
 <ul>
   <% @category.ordered_posts(@region).each do |post| %>
-    <li>
-      <%= link_to post.name, region_post_path(@region, post) %>,
-      posted <%= time_ago_in_words(post.created_at) %> ago
-    </li>
+    <%= render "post_link", region: @region, post: post %>
   <% end %>
 </ul>
