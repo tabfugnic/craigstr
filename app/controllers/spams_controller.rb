@@ -3,6 +3,6 @@ class SpamsController < ApplicationController
     @post = Post.find(params[:post_id])
     @post.mark_as_spam!
 
-    redirect_to [@post.region, @post] 
+    redirect_to [@post.region, @post]
   end
 end

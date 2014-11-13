@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   end
 
   def mark_as_spam!
-    self.spam = true 
+    self.spam = true
     self.save
   end
 end
