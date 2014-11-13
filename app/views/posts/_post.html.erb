@@ -1,5 +1,11 @@
 <h2><%= post.title %></h2>
 
+<div class="categories">
+  Categories: <% post.categories.each do |category| %>
+    <%= link_to category.name, region_category_path(post.region, category) %>
+  <% end %>
+</div>
+
 <p><%= post.description %></p>
 
 <%= image_tag post.image, width: 500 %>
