@@ -9,7 +9,5 @@
 <% end %>
 
 <ul>
-  <% @category.ordered_posts(@region).each do |post| %>
-    <%= render "post_link", region: @region, post: post %>
-  <% end %>
+  <%= render partial: "post_link", collection: @category.ordered_posts(@region), as: :post, locals: {region: @region} %>
 </ul>
