@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get "admin", to: "admin#show", as: :admin
 
-  resources :regions, except: [:update, :destroy] do
+  resources :regions do
     resources :categories, except: [:index]
     resources :posts, except: [:index]
   end

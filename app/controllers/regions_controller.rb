@@ -1,5 +1,5 @@
 class RegionsController < ApplicationController
-  before_action :check_admin, only: [:new, :create]
+  before_action :check_admin, except: [:index, :show]
 
   def new
     @region = Region.new
@@ -10,6 +10,24 @@ class RegionsController < ApplicationController
     @region.save
 
     redirect_to @region
+  end
+
+  def edit
+    @region = Region.find(params[:id])
+  end
+
+  def update
+    region = Region.find(params[:id])
+    region.update(region_params)
+
+    redirect_to region
+  end
+
+  def destroy
+    region = Region.find(params[:id])
+    region.destroy
+
+    redirect_to regions_path
   end
 
   def show
