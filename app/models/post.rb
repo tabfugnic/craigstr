@@ -5,11 +5,11 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   def owned_by?(user)
-    self.user == user
+    user == user
   end
 
   def mark_as_spam!
     self.spam = true
-    self.save
+    save
   end
 end
