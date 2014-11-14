@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :image, category_ids: [])
+    params.require(:post).permit(:name, :description, :image, category_ids: [])
   end
 
   def find_region

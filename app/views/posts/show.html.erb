@@ -1,13 +1,1 @@
-<h2><%= @post.title %></h2>
-
-<p><%= @post.description %></p>
-
-<%= image_tag @post.image, width: 500 %>
-
-<% if @post.owned_by?(current_user) || current_user.admin? %>
-  <div class="edit">
-    <%= link_to "Edit Post", edit_region_post_path(@post.region, @post) %>
-  </div>
-
-  <%= button_to "Delete Post", region_post_path(@post.region, @post), method: :delete %>
-<% end %>
+<%= render @post %>
