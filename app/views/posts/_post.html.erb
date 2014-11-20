@@ -19,3 +19,9 @@
 
   <%= button_to "Delete Post", region_post_path(@post.region, @post), method: :delete %>
 <% end %>
+
+<% if post.spam? %>
+  <p> Spam! Do not read.</p>
+<% else %>
+  <%= button_to "Spam!?", post_spam_path(post) %>
+<% end %>

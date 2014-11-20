@@ -12,5 +12,9 @@ Rails.application.routes.draw do
     resources :posts, except: [:index]
   end
 
+  resources :posts, only: [] do
+    resource :spam, only: [:create]
+  end
+
   root "regions#index"
 end
